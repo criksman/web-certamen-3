@@ -17,6 +17,7 @@ class CuentasSeeder extends Seeder
         DB::table('cuentas')->insert([
             ['user' => 'admin','password' => Hash::make('1111'),'nombre'=>'Administrador','Apellido'=>'1', 'perfil_id'=>1],           
             ['user' => 'usuario','password' => Hash::make('2222'),'nombre'=>'usuario','Apellido'=>'normal', 'perfil_id'=>2],
+            ['user' => 'caxa','password' => Hash::make('3333'),'nombre'=>'ll','Apellido'=>'sfsdg', 'perfil_id'=>1],
         ]);
     }
 }

@@ -25,7 +25,7 @@
           <a class="nav-link" href="#">Mi Cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Administración</a>
+          <a class="nav-link" href="{{ route('admin.index') }}">Administración</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('user.logoutUser') }}">Cerrar Sesión</a>
