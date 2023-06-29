@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\AdminCuentasRequest;
 use App\Http\Requests\AdminEditCuentasRequest;
+use App\Http\Requests\ArtistaCuentaRequest;
 use Gate;
 
 class CuentasController extends Controller
@@ -31,7 +32,7 @@ class CuentasController extends Controller
         return redirect()->route('home.login');
     }
 
-    //Admin funciones
+    //Admin
     public function adminIndex(){
         $users = Cuenta::all();
         return view('admin.index', compact('users'));
@@ -75,6 +76,25 @@ class CuentasController extends Controller
         $user->save();
         
         return redirect()->route('admin.index');
+    }
+
+    //Artista
+    public function artistaCreateUser(){
+        return view('artista.create_user');
+    }
+
+    public function artistaStoreUser(ArtistaCuentaRequest $request){
+        $user = new Cuenta();
+
+        $user->user = $request->user;
+        $user->password = Hash::make($request->password);
+        $user->nombre = $request->nombre;
+        $user->apellido = $request->apellido;
+        $user->perfil_id = 2;
+
+        $user->save();
+
+        return redirect()->route('home.login');
     }
 
 }

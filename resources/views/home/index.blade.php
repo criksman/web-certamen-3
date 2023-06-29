@@ -25,7 +25,7 @@
           <a class="nav-link" href="#">Mi Cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('admin.index') }}">Administración</a>
+          <a class="@if(Gate::denies('administracion-mostrar')) disabled @endif nav-link" href="{{ route('admin.index') }}">Administración</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('user.logoutUser') }}">Cerrar Sesión</a>
@@ -40,7 +40,83 @@
         <div class="jumbotron text-center">
           <h1>Bienvenido a Mi Aplicación</h1>
           <p>Sube tus fotos y compártelas con otros usuarios</p>
+          <a href="{{ route('artista.create_imagen') }}" class="btn btn-primary">Subir Foto</a>
         </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2>Fotos Subidas</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Titulo</th>
+              <th>Baneado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($imagenes as $imagen)
+            <tr>
+              <td> <a href="#">{{ $imagen->titulo }}</a> </td>
+              <td> @if($imagen->baneada == 0) No @else Si @endif</td>
+              <td>
+                <a href="{{ route('artista.edit_imagen', $imagen->id) }}" class="btn btn-sm btn-primary">Editar</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Eliminar
+                </button>
+                <!-- Modal -->
+                <form method="POST" action={{ route('artista.destroyImagen', $imagen->id) }}>
+                  @method('delete')
+                  @csrf
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmacion</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Esta seguro de que quiere eliminar esta foto?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-primary">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-sm btn-danger @if($imagen->baneada == 0) d-none @endif" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                  Motivo de ban
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Motivo de ban</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        {{$imagen->motivo_ban}}
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            @endforeach
+            <!-- Agrega más filas según las fotos disponibles -->
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

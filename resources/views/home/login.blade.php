@@ -39,7 +39,7 @@
             </form>
           </div>
           <div class="card-footer">
-            <p class="text-center">¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+            <p class="text-center">¿No tienes una cuenta? <a href="{{ route('artista.create_user') }}">Regístrate</a></p>
           </div>
         </div>
       </div>
