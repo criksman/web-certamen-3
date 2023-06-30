@@ -2,11 +2,19 @@
 
 @section('main-content')
   <div class="row">
-    <div class="col">
+    <div class="col mt-3 text-center">
       <h1>Lista de Usuarios</h1>
-    <div class="text-right mb-3">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col my-3">
       <a href="{{ route('admin.create_user') }}" class="btn btn-primary">Agregar Usuario</a>
     </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
       <table class="table">
         <thead>
           <tr>
@@ -59,4 +67,5 @@
       </table>
     </div>
   </div>
+    
 @endsection

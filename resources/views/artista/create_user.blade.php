@@ -25,28 +25,28 @@
                 @endif
             <form method="POST" action="{{ route('artista.storeUser') }}">
                 @csrf
-                <div class="form-group">
+                <div class="form-group mt-3">
                 <label for="user">Nombre de usuario</label>
                 <input type="text" class="form-control" id="user" name="user">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-3">
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-3">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-3">
                 <label for="apellido">Apellido</label>
                 <input type="text" class="form-control" id="apellido" name="apellido">
                 </div>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Crear Cuenta
                 </button>
 

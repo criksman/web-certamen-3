@@ -3,7 +3,7 @@
 @section('main-content')
 <div class="row">
     <div class="col">
-        <h2>Subir Imagen</h2>
+        <h2 class="my-3">Subir Imagen</h2>
         @if ($errors->any())
           <div class="alert alert-danger">
           <p>Por favor solucione los siguientes problemas:</p>
@@ -16,16 +16,16 @@
         @endif
         <form method="POST" action="{{ route('artista.storeImagen') }}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
+            <div class="form-group mt-3">
             <label for="titulo">Título</label>
             <input type="text" class="form-control" id="titulo" name="titulo">
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
             <label for="archivo">Archivo de Imagen</label>
             <input type="file" class="form-control" id="archivo" name="archivo" accept="image/*">
             </div>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Subir
             </button>
 

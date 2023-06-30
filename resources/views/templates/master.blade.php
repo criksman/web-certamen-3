@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Mi Aplicación</a>
+        <a class="navbar-brand p-2" href="#">Certamen Nº2</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,7 +20,7 @@
                 <a class="nav-link" href="{{route('publico.index')}}">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="@if(Gate::allows('invitado-mostrar')) disabled @else enabled @endif nav-link" href="{{route('home.index')}}">Mi Cuenta</a>
+                <a class="@if(Gate::allows('invitado-mostrar')) disabled @else enabled @endif nav-link" href="{{route('home.index')}}">Publicar</a>
             </li>
             <li class="nav-item">
                 <a class="@if(Gate::allows('administracion-mostrar')) enabled @else disabled @endif nav-link" href="{{ route('admin.index') }}">Administración</a>
