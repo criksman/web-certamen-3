@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Imagen;
 use App\Models\Cuenta;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ArtistaImagenRequest;
 use App\Http\Requests\ArtistaEditImagenRequest;
 
@@ -39,6 +40,8 @@ class ImagenesController extends Controller
 
     public function artistaDestroyImagen(Imagen $imagen){
         $imagen->delete();
+        Storage::delete('public/documentos/img/' . $imagen->archivo);
+        
         return redirect()->route('home.index');
     }
 
