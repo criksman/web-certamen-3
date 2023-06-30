@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vista de Índice</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container mt-5">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
+@extends('templates.master')
+
+@section('main-content')
+<div class="row">
+    <div class="col">
         <h2>Subir Imagen</h2>
         @if ($errors->any())
-        <div class="alert alert-warning">
-            @foreach ($errors->all() as $error)
-            {{ $error }}
-            @endforeach
-        </div>
+          <div class="alert alert-danger">
+          <p>Por favor solucione los siguientes problemas:</p>
+          <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+          </div>
         @endif
         <form method="POST" action="{{ route('artista.storeImagen') }}" enctype="multipart/form-data">
             @csrf
@@ -52,11 +48,6 @@
             </div>
             </div>
         </form>
-        </div>
     </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
-</body>
-</html>
+</div>
+@endsection

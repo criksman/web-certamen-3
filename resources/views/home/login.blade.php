@@ -15,13 +15,16 @@
           <div class="card-header">
             <h4 class="text-center">Iniciar sesión</h4>
           </div>
-            @if ($errors->any())
-            <div class="alert alert-warning">
-                @foreach ($errors->all() as $error)
-                {{ $error }}
-                @endforeach
-            </div>
-            @endif
+          @if ($errors->any())
+          <div class="alert alert-danger">
+          <p>Por favor solucione los siguientes problemas:</p>
+          <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+          </div>
+          @endif
           <div class="card-body">
             <form method="POST" action="{{route('user.authUser')}}">
               @csrf
@@ -40,6 +43,10 @@
           </div>
           <div class="card-footer">
             <p class="text-center">¿No tienes una cuenta? <a href="{{ route('artista.create_user') }}">Regístrate</a></p>
+            <form method="POST" action="{{ route('publico.StoreLoginUser') }}">
+              @csrf
+                <button type="submit" class="btn btn-primary">Iniciar sesión como invitado</button>
+            </form>
           </div>
         </div>
       </div>

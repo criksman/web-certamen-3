@@ -12,11 +12,14 @@
         <div class="col-md-8 offset-md-2">
         <h2>Editar Imagen</h2>
         @if ($errors->any())
-        <div class="alert alert-warning">
-            @foreach ($errors->all() as $error)
-            {{ $error }}
-            @endforeach
-        </div>
+          <div class="alert alert-danger">
+          <p>Por favor solucione los siguientes problemas:</p>
+          <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+          </div>
         @endif
         <form method="POST" action="{{ route('artista.updateImagen', $imagen->id) }}" enctype="multipart/form-data">
             @method('put')

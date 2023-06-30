@@ -40,6 +40,14 @@ Route::delete('/artista/deleteImagen/{imagen}', [ImagenesController::class, 'art
 Route::put('/artista/updateImagen/{imagen}', [ImagenesController::class, 'artistaUpdateImagen'])->name('artista.updateImagen');
 
 
+//Publico-Vistas
+Route::get('/public/index', [ImagenesController::class, 'publicoShowImagenes'])->name('publico.index');
+
+//Publico (posts,deletes, puts)
+Route::post('/public/login', [CuentasController::class, 'publicoStoreLoginUser'])->name('publico.StoreLoginUser');
+Route::delete('/public/logout', [CuentasController::class, 'publicoDestroyLogoutUser'])->name('publico.DestroyLogoutUser');
+
+
 //Admin
 Route::get('/admin/index', [CuentasController::class, 'adminIndex'])->name('admin.index');
 Route::delete('/admin/deleteUser/{user}', [CuentasController::class, 'adminDeleteUser'])->name('admin.deleteUser');
@@ -47,3 +55,5 @@ Route::get('/admin/create_user', [CuentasController::class, 'adminCreateUser'])-
 Route::post('/admin/storeUser', [CuentasController::class, 'adminStoreUser'])->name('admin.storeUser');
 Route::get('/admin/edit_user/{user}',[CuentasController::class, 'adminEditUser'])->name('admin.edit_user');
 Route::put('/admin/updateUser/{user}', [CuentasController::class, 'adminUpdateUser'])->name('admin.updateUser');
+Route::put('/admin/banImagen/{imagen}', [ImagenesController::class, 'adminBanImagen'])->name('admin.banImagen');
+Route::put('/admin/unBanImagen/{imagen}', [ImagenesController::class, 'adminUnBanImagen'])->name('admin.UnBanImagen');

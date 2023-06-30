@@ -23,7 +23,7 @@ class ArtistaImagenRequest extends FormRequest
     {
         return [
             'titulo' => 'required|min:1|max:20',
-            'archivo' => 'bail|file|required|min:8|max:100',
+            'archivo' => 'bail|file|required',
         ];
     }
 }

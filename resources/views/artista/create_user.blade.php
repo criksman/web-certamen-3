@@ -14,10 +14,13 @@
             <div class="card-body">
             <h5 class="card-title">Crear cuenta</h5>
                 @if ($errors->any())
-                <div class="alert alert-warning">
+                <div class="alert alert-danger">
+                <p>Por favor solucione los siguientes problemas:</p>
+                <ul>
                     @foreach ($errors->all() as $error)
-                    {{ $error }}
+                    <li>{{ $error }}</li>
                     @endforeach
+                </ul>
                 </div>
                 @endif
             <form method="POST" action="{{ route('artista.storeUser') }}">

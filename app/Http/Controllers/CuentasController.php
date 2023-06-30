@@ -97,4 +97,30 @@ class CuentasController extends Controller
         return redirect()->route('home.login');
     }
 
+    public function publicoStoreLoginUser(){
+        $user = new Cuenta();
+        $username = 'guest_' . uniqid();
+        $password = bcrypt('contraseña');
+
+        $user->user = $username;
+        $user->password = $password;
+        $user->nombre = "none";
+        $user->apellido = "none";
+        $user->perfil_id = 3;
+
+        if ($user->save()) {
+            Auth::login($user);
+            return redirect()->route('publico.index');
+        } else {
+            return redirect()->route('home.login');
+        }
+    }
+
+    public function publicoDestroyLogoutUser(){
+        Auth::user()->delete();
+        Auth::logout();
+
+        return redirect()->route('home.login');
+    }
+
 }
