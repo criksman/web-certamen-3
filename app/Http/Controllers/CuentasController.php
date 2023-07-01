@@ -66,18 +66,23 @@ class CuentasController extends Controller
     }
 
     public function adminUpdateUser(AdminEditCuentasRequest $request,Cuenta $user){
-        //chequear comentario en el request "AdminEditCuentasRequest"
-
+        $isUser = Auth::user()->user == $user->user;
+        
         $user->user = $request->user;
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
         $user->perfil_id = $request->perfil_id;
 
         $user->save();
+
+        if($isUser){
+            Auth::logout();
+            return redirect()->route('home.login');
+        }
         
         return redirect()->route('admin.index');
     }
-
+    
     //Artista
     public function artistaCreateUser(){
         return view('artista.create_user');
