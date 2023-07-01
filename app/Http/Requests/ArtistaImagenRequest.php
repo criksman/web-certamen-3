@@ -26,4 +26,14 @@ class ArtistaImagenRequest extends FormRequest
             'archivo' => 'bail|file|required',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'titulo.required' => 'Indique el titulo',
+            'titulo.min' => 'Debe tener minimo 1 caracter',
+            'titulo.max' => 'Debe tener maximo 20 caracter',
+            'archivo.required' => 'Ingrede un archivo',
+        ];
+    }
 }

@@ -4,11 +4,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+    body{
+      background-color: #311151;
+    }
+  </style>
 </head>
 <body>
   <div class="row">
     <div class="col d-flex align-items-center justify-content-center mt-5">
-      <div class="card d-flex flex-column">
+      <div class="card d-flex flex-column ">
         <div class="card-header">
           <h4 class="text-center">Iniciar sesión</h4>
         </div>
@@ -42,7 +47,9 @@
           <p class="text-center">¿Eres un artista? <a href="{{ route('artista.create_user') }}">Regístrate</a></p>
           <form method="POST" action="{{ route('publico.StoreLoginUser') }}">
             @csrf
+            <div class="text-center">
               <button type="submit" class="btn btn-primary">Ingresar como invitado</button>
+            </div>
           </form>
         </div>
       </div>
