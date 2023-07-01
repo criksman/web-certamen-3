@@ -30,6 +30,10 @@
                         <input type="text" class="form-control" id="user" name="user" placeholder={{$user->user}}>
                     </div>
                     <div class="form-group mt-3">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group mt-3">
                         <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder={{$user->nombre}}>
                     </div>
@@ -45,7 +49,7 @@
                         </select>
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
-                        <button type="button" class="btn btn-warning mt-3">Volver</button>
+                        <a href="{{route('admin.index')}}" class="btn btn-warning mt-3">Volver</a>
                         <button type="submit" class="btn btn-primary mt-3">Aplicar Cambios</button>
                     </div>
                     </form>

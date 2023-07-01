@@ -59,9 +59,13 @@
                     </div>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                    <div class="modal-footer d-flex justify-content-between">
+                        <a href="{{route('home.login')}}" class="btn btn-warning mt-3">Volver</a>
+                        <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Crear Cuenta
-                    </button>
+                        </button>
+                    </div>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

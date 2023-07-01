@@ -47,7 +47,7 @@
                             </select>
                         </div>
                         <div class="modal-footer d-flex justify-content-between">
-                            <button type="button" class="btn btn-warning mt-3">Volver</button>
+                            <a href="{{route('admin.index')}}" class="btn btn-warning mt-3">Volver</a>
                             <button type="submit" class="btn btn-primary mt-3 mr-2">Agregar Usuario</button>
                         </div>
                     </form>

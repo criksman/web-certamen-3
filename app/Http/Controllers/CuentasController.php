@@ -69,6 +69,7 @@ class CuentasController extends Controller
         $isUser = Auth::user()->user == $user->user;
         
         $user->user = $request->user;
+        $user->password = Hash::make($request->password);
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
         $user->perfil_id = $request->perfil_id;
